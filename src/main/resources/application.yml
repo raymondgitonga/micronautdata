@@ -1,0 +1,20 @@
+micronaut:
+  application:
+    name: micronautdata
+
+datasources:
+  default:
+    url: jdbc:mysql://localhost:3306/photo_app
+    username: root
+    password: password
+    dialect: MYSQL
+
+jpa:
+  default:
+    packages-to-scan:
+      - 'com.tosh'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
