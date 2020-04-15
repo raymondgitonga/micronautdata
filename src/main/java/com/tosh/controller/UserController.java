@@ -15,11 +15,8 @@ import javax.validation.Valid;
 @Controller("/users")
 public class UserController {
 
-    protected final UserRepository userRepository;
-
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    @Inject
+    private UserRepository userRepository;
 
     @Get("/hello")
     public String hello(){
