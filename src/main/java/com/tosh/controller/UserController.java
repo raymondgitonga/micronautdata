@@ -7,6 +7,7 @@ import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
+import io.reactivex.Single;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -26,10 +27,8 @@ public class UserController {
     }
 
     @Get("/{id}")
-    public User getUserById(Long id) {
-        return userRepository
-                .findById(id)
-                .orElse(null);
+    public Single<User> getUserById(Long id) {
+        return userRepository.findById(id);
     }
 
     @Post("/")
